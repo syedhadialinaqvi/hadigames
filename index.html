@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/index.js"></script>
+   
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+    <title>Hadi Games</title>
+<script>
+	$(document).ready(function(){
+
+//hamburger Toggle
+$('.humbarger').click(function(event){
+$('.menu-list').slideToggle(500);
+event.preventDefault();
+
+$('.menu-list li a').click(function(event) {
+	if ($(window).width() < 768) {
+	  $('.menu-list').slideUp(500);
+	  event.preventDefault(); 
+	}
+  });
+});
+
+});
+</script>
+    <style>
+	*{
+  margin: 0;
+  padding: 0;
+	box-sizing: border-box;
+}
+
+html,body{
+  min-width: 100%;
+  overflow-x: hidden;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+header .navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  min-height: 12vh;
+  min-width: 100%;
+  z-index: 10;
+  background: #0f1423;
+  border-bottom: 2px solid #0c2d48;
+}
+
+header .navigation .logo{
+  margin-left: 20px;
+}
+
+header .navigation .logo h1{
+  color: #b1d4e0;
+  font-size: 30px;
+  line-height: 38px;
+}
+
+header .navigation .menu-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 45%;
+  margin: auto 20px auto 0;
+}
+
+header .navigation .humbarger {
+  margin-right: 20px;
+  display: none;
+ }
+ 
+header .navigation .humbarger .bar{
+  width: 30px;
+  height: 2px;
+  margin: 7px;
+  background: #b1d4e0;
+ }
+
+header .navigation .menu-list li a {
+  color: #b1d4e0;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 1s ease, border 1s ease;
+  text-decoration: none;
+}
+
+/* ====================
+  Intro Section
+=======================*/
+.intro-section {
+  height: 100vh;
+  position: relative;
+  background: rgba(15, 20, 35, 0.9);
+}
+
+.intro-section .intro-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.intro-section .intro-content h1 {
+  color: #b1d4e0;
+  font-size: 5rem;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  margin-top: 80px;
+}
+
+.intro-section .intro-content h6{
+  margin-top: 5px;
+  color: #b1d4e0;
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+.intro-section .intro-content p {
+  margin-top: 40px;
+  color: #b1d4e0;
+}
+
+.intro-content .tagline {
+  margin-top:80px;
+}
+
+.intro-section .intro-content .tagline .change-container{
+	position: relative;
+  display: inline-block;
+  width: 560px;
+  margin-bottom: 55px;
+	margin-top: 30px;
+}
+
+.intro-section .intro-content .changing {
+	position: absolute;
+	overflow: hidden;
+  width: 100%;
+  left:0;
+  bottom:0;
+  height:0;
+  opacity:0;
+  color: #b1d4e0;
+  text-transform: uppercase;
+  word-spacing: 5px;
+	text-align: center;
+	font-size: 2.5rem;
+}
+
+.changing:nth-child(1) {
+  animation: revealNextWord 6s cubic-bezier(0.57, 1.52, 0.9, 1.08) 1.5s infinite;
+}
+
+.changing:nth-child(2) {
+  animation: revealNextWord 6s cubic-bezier(0.57, 1.52, 0.9, 1.08) 3s infinite;
+}
+
+.changing:nth-child(3) {
+  animation: revealNextWord 6s cubic-bezier(0.57, 1.52, 0.9, 1.08) 4.5s infinite;
+}
+
+@keyframes revealNextWord {
+  0% { 
+    opacity: 0.3; 
+    height: 0.0; 
+  }
+  10% { 
+    opacity: 1; 
+    height:1.2em; 
+  }
+  20% { 
+    opacity: 1; 
+    height:1.2em; 
+  }
+  28% { 
+    opacity: 0; 
+    height:2em; 
+  }
+  
+}
+
+.intro-section .intro-content .header-btn a{
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #3498db;
+  background-color: #b1d4e0;
+  padding: 15px;
+  border-radius: 5px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+.intro-section .intro-content .header-btn a:before{
+	position: absolute;
+  content: ""; 
+  top: 0px;
+  height: 100%;
+  left: -25%;
+  width: 0%;
+  background-color: #3498db;
+  transform: skew(50deg);
+  transition-duration: 1s;
+  z-index: 1;
+}
+
+.intro-section .intro-content .header-btn a:hover{
+  color: #b1d4e0;
+}
+
+.intro-section .intro-content .header-btn a:hover:before{
+  width: 170%;
+
+}
+
+.intro-section .intro-content .header-btn a span{
+	position: relative;
+	z-index: 9;
+}
+
+/* ====================
+  Responsive Section
+=======================*/
+
+/* Tablet desktop :768px. */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  header .navigation .menu-list {
+    width: 60%;
+  }
+
+  header .navigation .menu-list li a{
+    font-size: 1rem;
+  }
+
+}
+
+/* Large Mobile :480px. */
+
+@media only screen and (max-width: 767px) {
+
+  header .navigation .menu-list {
+    position: absolute;
+    top: 12vh;
+    min-width: 100%;
+    background: rgba(15, 20, 35, 0.99);
+    text-align: center;
+    display: none;
+  }
+
+  header .navigation .menu-list li {
+    display: block;
+  }
+
+  header .navigation .menu-list li a {
+    display: block;
+    padding: 20px;
+    transition: color 1s ease, padding 1s ease, background-color 1s ease;
+
+  }
+
+  header .navigation .menu-list li a:hover{
+    color: #b1d4e0;
+    padding-left: 30px;
+    background: rgba(177, 212, 224, 0.2);
+  }
+
+
+  header .navigation .humbarger{
+    display: block;
+  }
+
+  .intro-section .intro-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .intro-section .intro-content h6 {
+    font-size: 1.4rem;
+  }
+
+  .intro-section .intro-content .changing {
+    font-size: 1.5rem;
+  }
+
+  .intro-section .intro-content .header-btn a{
+    font-size: 1.25rem;
+  }
+
+}
+
+
+/* small mobile :320px. */
+
+@media only screen and (max-width: 479px) {
+
+  .intro-inner .intro-content h1 {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+
+  .intro-inner .intro-content p {
+    margin-top: 10px;
+  }
+
+}
+.shgame {
+text-decoration: none;
+}
+    
+	</style>
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!--====== Header Section Start ======-->
+	<header>
+		<nav class="navigation">
+
+			<!-- Logo -->
+			<div class="logo">
+				<h1>Hadi Games</h1>
+			</div>
+			
+			<!-- Navigation -->
+			<ul class="menu-list">
+				<li><a href="#">Home</a></li>
+				<li><a href="http://syedhadi.rf.gd/">About</a></li>
+				<li><a href="http://syedhadi.rf.gd/">Services</a></li>
+				<li><a href="http://syedhadi.rf.gd/">Project</a></li>
+				<li><a href="http://syedhadi.rf.gd/">Contact</a></li>
+			</ul>
+
+			<div class="humbarger">
+				<div class="bar"></div>
+				<div class="bar2 bar"></div>
+				<div class="bar"></div>
+			</div>
+		</nav>
+    
+    <!-- ==== Intro Section Start ==== -->
+		<div class="intro-section" id="home">
+			<div class="bg-img"></div>
+			<div class="intro-content">
+				<h1>Gaming World</h1>
+				<h6>Developed By : Syed Hadi Ali</h6>
+				
+		
+				<div class="header-btn animated bounceIn">
+					<a href=""><span>Play Game</span><span></span></a>
+				</div>
+				<!-- social media -->
+			</div>
+		</div>	
+	</header>
+
+
+<br>
+<br>
+<br>
+<!-- FOr Horizontal line -->
+<hr>
+
+
+
+
+	<div class="card-group">
+		<div class="card">
+		  <img src="./SnakeGame/sh.jpg" class="card-img-top" alt="...">
+		  <div class="card-body">
+			<a href="./ShootingGame/index.html" class="shgame"><h5 class="card-title">Shooting Game</h5></a>
+			<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+		  </div>
+		  <div class="card-footer">
+			<small class="text-muted">Last updated 56 mins ago</small>
+		  </div>
+		</div>
+		<div class="card">
+		  <img src="./SnakeGame/snk.png" class="card-img-top" alt="...">
+		  <div class="card-body">
+			<a href="./SnakeGame/index.html" class="shgame"><h5 class="card-title">Snake Game</h5></a><p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+		  </div>
+		  <div class="card-footer">
+			<small class="text-muted">Last updated 57 mins ago</small>
+		  </div>
+		</div>
+		<div class="card">
+		  <img src="./SnakeGame/cc.jpg" class="card-img-top" alt="...">
+		  <div class="card-body">
+			<a href="./candy/index.html" class="shgame"><h5 class="card-title">Toffee Crushing Game</h5> </a>
+			<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+		  </div>
+		  <div class="card-footer">
+			<small class="text-muted">Last updated 57 mins ago</small>
+		  </div>
+		</div>
+	  </div>
+
+</body>
+</html>
